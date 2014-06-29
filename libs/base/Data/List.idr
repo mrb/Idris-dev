@@ -29,3 +29,8 @@ using (xs : List a)
                  Elem x' (y' :: xs') -> _|_
           mkNo f g Here = f refl
           mkNo f g (There x) = g x
+
+||| The length of a list
+length : List a -> Nat
+length [] = Z
+length (x::xs) = S (len xs)
