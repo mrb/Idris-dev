@@ -111,7 +111,7 @@ eol = (satisfy isEol *> pure ()) <|> lookAhead eof <?> "end of line"
  -}
 singleLineComment :: MonadicParsing m => m ()
 singleLineComment =     try (string "--" *> eol *> pure ())
-                    <|> try (string "--" *> many simpleWhiteSpace *>
+                    <|> try (string "--" *>
                              many (satisfy (not . isEol)) *>
                              eol *> pure ())
                     <?> ""
